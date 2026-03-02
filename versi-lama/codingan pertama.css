@@ -1,4 +1,4 @@
-/* --- RESET DASAR --- */
+/* Reset Dasar */
 * {
     margin: 0;
     padding: 0;
@@ -7,66 +7,15 @@
 }
 
 body {
-    background-color: #f0f2f5;
+    background-color: #f0f2f5; /* Abu-abu sangat muda */
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     padding: 20px;
-    padding-top: 100px;
 }
 
-/* --- NAVBAR KIRI ATAS --- */
-.navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 2px 15px rgba(0,0,0,0.05);
-    display: flex;
-    justify-content: flex-start;
-    gap: 50px;
-    align-items: center;
-    padding: 15px 50px;
-    z-index: 1000;
-}
-
-.nav-logo {
-    font-size: 24px;
-    font-weight: 700;
-    color: #1e3c72;
-    cursor: pointer;
-}
-
-.nav-logo span {
-    color: #2a5298;
-    font-weight: 300;
-}
-
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 30px;
-}
-
-.nav-links li a {
-    text-decoration: none;
-    color: #555;
-    font-size: 14px;
-    font-weight: 500;
-    transition: all 0.3s ease;
-    padding-bottom: 5px;
-}
-
-.nav-links li a:hover,
-.nav-links li a.active {
-    color: #1e3c72;
-    border-bottom: 2px solid #1e3c72;
-}
-
-/* --- KOTAK UTAMA (PEMBUNGKUS) --- */
+/* Kotak Utama (Pembungkus Semuanya) */
 .main-container {
     display: flex;
     background: white;
@@ -77,9 +26,9 @@ body {
     box-shadow: 0 15px 40px rgba(0,0,0,0.1);
 }
 
-/* --- BAGIAN KIRI (PROFIL) --- */
+/* --- BAGIAN KIRI (Profil) --- */
 .profile-card {
-    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); /* Biru gradasi */
     width: 35%;
     padding: 40px;
     text-align: center;
@@ -115,14 +64,8 @@ body {
     font-size: 14px;
     opacity: 0.8;
     letter-spacing: 1px;
-    margin-bottom: 5px;
-    text-transform: uppercase;
-}
-
-.profile-card .campus {
-    font-size: 13px;
-    opacity: 0.9;
     margin-bottom: 20px;
+    text-transform: uppercase;
 }
 
 .social-links {
@@ -149,7 +92,7 @@ body {
     transform: translateY(-3px);
 }
 
-/* --- BAGIAN KANAN (KONTEN INFO) --- */
+/* --- BAGIAN KANAN (Konten) --- */
 .content-area {
     width: 65%;
     padding: 40px;
@@ -169,15 +112,15 @@ body {
 .line {
     width: 50px;
     height: 3px;
-    background: #2a5298;
+    background: #2a5298; /* Garis biru kecil */
     margin-top: 5px;
     border-radius: 2px;
 }
 
-/* --- GRID INFORMASI (BERANDA & KONTAK) --- */
+/* Grid Informasi */
 .info-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr; /* 2 Kolom */
     gap: 20px;
     margin-bottom: 30px;
 }
@@ -214,7 +157,7 @@ body {
     font-weight: 600;
 }
 
-/* --- PETA (MAPS) --- */
+/* Peta */
 .map-wrapper {
     width: 100%;
     height: 200px;
@@ -229,59 +172,6 @@ body {
     border: 0;
 }
 
-/* --- TENTANG SAYA --- */
-.about-text {
-    font-size: 14px;
-    color: #555;
-    line-height: 1.8;
-    margin-bottom: 15px;
-    text-align: justify;
-}
-
-/* --- PORTOFOLIO --- */
-.project-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 15px;
-    margin-bottom: 20px;
-}
-
-.project-card {
-    background: #f8f9fa;
-    border-left: 4px solid #2a5298;
-    padding: 15px 20px;
-    border-radius: 5px 10px 10px 5px;
-    transition: 0.3s;
-}
-
-.project-card:hover {
-    transform: translateX(5px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-}
-
-.project-card h3 {
-    font-size: 15px;
-    color: #1e3c72;
-    margin-bottom: 5px;
-}
-
-.project-card p {
-    font-size: 13px;
-    color: #666;
-    margin-bottom: 10px;
-}
-
-.tag-badge {
-    background: #2a5298;
-    color: white;
-    padding: 3px 10px;
-    border-radius: 12px;
-    font-size: 10px;
-    margin-right: 5px;
-    display: inline-block;
-}
-
-/* --- FOOTER --- */
 footer {
     margin-top: 30px;
     text-align: right;
@@ -289,30 +179,19 @@ footer {
     color: #aaa;
 }
 
-/* --- RESPONSIF UNTUK HP --- */
+/* Responsif untuk HP (Layar Kecil) */
 @media (max-width: 768px) {
-    .navbar {
-        padding: 15px 20px;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 15px;
-    }
-    .nav-links {
-        gap: 15px;
-        flex-wrap: wrap;
-    }
-    body {
-        padding-top: 140px;
-    }
     .main-container {
-        flex-direction: column;
+        flex-direction: column; /* Tumpuk ke bawah */
         width: 100%;
     }
+    
     .profile-card, .content-area {
         width: 100%;
         padding: 30px 20px;
     }
+
     .info-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* Jadi 1 kolom */
     }
 }
