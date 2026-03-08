@@ -316,3 +316,19 @@ footer {
         grid-template-columns: 1fr;
     }
 }
+/* --- TUGAS: MODIFIKASI BULLET SKILL --- */
+.custom-bullet {
+    list-style-type: square; /* Mengubah bulat menjadi kotak */
+    color: #2a5298; /* Warna peluru biru */
+    padding-left: 25px;
+}
+
+.custom-bullet li {
+    margin-bottom: 12px;
+}
+
+.custom-bullet li span {
+    color: #444; /* Warna teks kembali normal */
+    font-size: 14px;
+    font-weight: 500;
+}
