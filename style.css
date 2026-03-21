@@ -332,3 +332,106 @@ footer {
     font-size: 14px;
     font-weight: 500;
 }
+/* --- DESAIN FORMULIR MODERN --- */
+.form-container {
+    background: #f8f9fa;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    font-size: 14px;
+    color: #1e3c72;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: 'Poppins', sans-serif;
+    transition: 0.3s;
+}
+
+.form-group input:focus, .form-group textarea:focus {
+    border-color: #2a5298;
+    outline: none;
+    box-shadow: 0 0 8px rgba(42, 82, 152, 0.2);
+}
+
+.btn-submit {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+    width: 100%;
+    font-weight: 600;
+}
+
+.btn-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(30, 60, 114, 0.3);
+}
+
+/* --- DESAIN KALKULATOR --- */
+.calculator {
+    background: #222;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    width: 100%;
+    max-width: 350px;
+    margin: 0 auto;
+}
+
+.calc-display {
+    background: #eef2f6;
+    color: #222;
+    font-size: 32px;
+    text-align: right;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    overflow-x: auto;
+}
+
+.calc-buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+.calc-btn {
+    background: #333;
+    color: white;
+    border: none;
+    padding: 20px 0;
+    font-size: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.2s;
+    font-family: 'Poppins', sans-serif;
+}
+
+.calc-btn:hover { background: #444; }
+.calc-btn.operator { background: #2a5298; }
+.calc-btn.operator:hover { background: #1e3c72; }
+.calc-btn.clear { background: #e74c3c; grid-column: span 2; }
+.calc-btn.clear:hover { background: #c0392b; }
+.calc-btn.equal { background: #2ecc71; grid-column: span 2; }
+.calc-btn.equal:hover { background: #27ae60; }
