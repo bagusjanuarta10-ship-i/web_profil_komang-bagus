@@ -6,6 +6,27 @@
     <title>Formulir Kontak - Komang Bagus</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Desain khusus untuk kotak hasil form */
+        #hasil-form {
+            display: none; /* Disembunyikan dulu sebelum form diisi */
+            margin-top: 25px;
+            padding: 20px;
+            background-color: #eef2f6;
+            border-left: 5px solid #2a5298;
+            border-radius: 8px;
+            color: #333;
+        }
+        #hasil-form h3 {
+            color: #1e3c72;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+        #hasil-form p {
+            margin: 5px 0;
+            font-size: 14px;
+        }
+    </style>
 </head>
 <body>
     <nav class="navbar">
@@ -15,9 +36,9 @@
             <li><a href="pendidikan.html">Pendidikan</a></li>
             <li><a href="skill.html">Skill</a></li>
             <li><a href="saya.html">Tentang Saya</a></li>
-            <li><a href="form.html"class="active">Formulir</a></li>
+            <li><a href="form.html" class="active">Formulir</a></li>
             <li><a href="kalkulator.html">Kalkulator</a></li>
-            <li><a href="kontak.html">Kontak</a></li>
+             <li><a href="kontak.html">Kontak</a></li>
         </ul>
     </nav>
 
@@ -36,7 +57,7 @@
             </div>
             
             <div class="form-container" style="margin-top: 20px;">
-                <form action="#" method="get">
+                <form id="contactForm">
                     <div class="form-group">
                         <label for="nama">Nama Lengkap</label>
                         <input type="text" id="nama" placeholder="Masukkan nama Anda" required>
@@ -52,7 +73,42 @@
                     <button type="submit" class="btn-submit">Kirim Pesan</button>
                 </form>
             </div>
+
+            <div id="hasil-form">
+                </div>
+
         </main>
     </div>
+
+    <script>
+        // 1. Tangkap elemen form berdasarkan ID
+        const form = document.getElementById('contactForm');
+        
+        // 2. Beri perintah saat form di-submit
+        form.addEventListener('submit', function(event) {
+            
+            // MENCEGAH HALAMAN REFRESH (Penting!)
+            event.preventDefault(); 
+            
+            // 3. Ambil nilai yang diketik user
+            const inputNama = document.getElementById('nama').value;
+            const inputEmail = document.getElementById('email').value;
+            const inputPesan = document.getElementById('pesan').value;
+            
+            // 4. Tangkap kotak hasil dan ubah isinya
+            const kotakHasil = document.getElementById('hasil-form');
+            kotakHasil.style.display = 'block'; // Munculkan kotaknya
+            
+            kotakHasil.innerHTML = `
+                <h3>Data Berhasil Ditampilkan!</h3>
+                <p><strong>Nama:</strong> ${inputNama}</p>
+                <p><strong>Email:</strong> ${inputEmail}</p>
+                <p><strong>Pesan:</strong> ${inputPesan}</p>
+            `;
+            
+            // 5. Kosongkan kembali form setelah diklik
+            form.reset();
+        });
+    </script>
 </body>
 </html>
