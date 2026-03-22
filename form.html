@@ -7,9 +7,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Desain khusus untuk kotak hasil form */
         #hasil-form {
-            display: none; /* Disembunyikan dulu sebelum form diisi */
+            display: none;
             margin-top: 25px;
             padding: 20px;
             background-color: #eef2f6;
@@ -25,6 +24,20 @@
         #hasil-form p {
             margin: 5px 0;
             font-size: 14px;
+        }
+        .btn-hapus {
+            background: #e74c3c;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            font-size: 13px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: 0.3s;
+        }
+        .btn-hapus:hover {
+            background: #c0392b;
         }
     </style>
 </head>
@@ -74,41 +87,59 @@
                 </form>
             </div>
 
-            <div id="hasil-form">
-                </div>
+            <div id="hasil-form"></div>
 
         </main>
     </div>
 
     <script>
-        // 1. Tangkap elemen form berdasarkan ID
         const form = document.getElementById('contactForm');
-        
-        // 2. Beri perintah saat form di-submit
-        form.addEventListener('submit', function(event) {
+        const kotakHasil = document.getElementById('hasil-form');
+
+        // 1. FUNGSI CEK MEMORI BROWSER SAAT HALAMAN DIBUKA
+        window.onload = function() {
+            // Membaca data yang disimpan di LocalStorage dengan nama "dataPesan"
+            const dataTersimpan = localStorage.getItem('dataPesan');
             
-            // MENCEGAH HALAMAN REFRESH (Penting!)
+            // Jika ada data, langsung tampilkan di layar
+            if (dataTersimpan) {
+                kotakHasil.style.display = 'block';
+                kotakHasil.innerHTML = dataTersimpan + '<br><button onclick="hapusData()" class="btn-hapus">Hapus Pesan Tersimpan</button>';
+            }
+        };
+
+        // 2. FUNGSI MENYIMPAN DATA SAAT TOMBOL KIRIM DITEKAN
+        form.addEventListener('submit', function(event) {
             event.preventDefault(); 
             
-            // 3. Ambil nilai yang diketik user
             const inputNama = document.getElementById('nama').value;
             const inputEmail = document.getElementById('email').value;
             const inputPesan = document.getElementById('pesan').value;
             
-            // 4. Tangkap kotak hasil dan ubah isinya
-            const kotakHasil = document.getElementById('hasil-form');
-            kotakHasil.style.display = 'block'; // Munculkan kotaknya
-            
-            kotakHasil.innerHTML = `
-                <h3>Data Berhasil Ditampilkan!</h3>
+            // Siapkan kerangka HTML untuk hasil ketikan
+            const hasilHTML = `
+                <h3>Pesan Terakhir Disimpan!</h3>
                 <p><strong>Nama:</strong> ${inputNama}</p>
                 <p><strong>Email:</strong> ${inputEmail}</p>
                 <p><strong>Pesan:</strong> ${inputPesan}</p>
             `;
             
-            // 5. Kosongkan kembali form setelah diklik
+            // Munculkan kotaknya di layar
+            kotakHasil.style.display = 'block';
+            kotakHasil.innerHTML = hasilHTML + '<br><button onclick="hapusData()" class="btn-hapus">Hapus Pesan Tersimpan</button>';
+            
+            // SIMPAN KE DALAM MEMORI BROWSER (LOCALSTORAGE)
+            localStorage.setItem('dataPesan', hasilHTML);
+            
             form.reset();
         });
+
+        // 3. FUNGSI MENGHAPUS MEMORI
+        function hapusData() {
+            localStorage.removeItem('dataPesan'); // Hapus dari memori browser
+            kotakHasil.style.display = 'none';    // Sembunyikan kotak hasil
+            kotakHasil.innerHTML = '';            // Kosongkan isi kotaknya
+        }
     </script>
 </body>
 </html>
